@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 	public class Utilisateur {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer id;
 		
 		@Column(name = "nom")
