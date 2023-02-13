@@ -1,10 +1,16 @@
 package com.example.demo.model;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -38,6 +44,25 @@ public class Produits {
 	@Column(name = "QuantiteMin")
 	private Float QuantiteMin;
 	
+	@Column(name = "PrixUnitHt")
+	private BigDecimal PrixUnitHt;
 	
+	@Column(name = "TauxTva")
+	private BigDecimal TauxTva;
 	
+	@Column(name = "PrixUnitTtc")
+	private BigDecimal PrixUnitTtc;
+	
+	@OneToMany(mappedBy = "produits")
+	 private List<Commande>commandes;
+	
+	@OneToMany(mappedBy = "produits")
+	private List<MvtStock>mvtStocks;
+	
+	@OneToMany(mappedBy = "produits")
+	private List<Fournisseur>fournisseurs;
+	
+	@ManyToOne 
+	@JoinColumn(name = "idcategory")
+	private Category Category;
 }

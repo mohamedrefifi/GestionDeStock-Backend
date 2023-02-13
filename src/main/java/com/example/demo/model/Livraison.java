@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,28 +20,30 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Fournisseur")
+@Table(name = "Livraison")
 
-public class Fournisseur {
+public class Livraison {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name = "nom")
-	private String nom;
+	@Column(name = "NumBonLivraion")
+	private String NumBonLivraion;
 	
-	@Column(name = "Email")
-	private String Email;
+	@Column(name = "DateLivraison")
+	private String DateLivraison;
 	
-	@Column(name = "Telephone")
-	private String Telephone;
+	@Column(name = "Quantite")
+	private Float Quantite;
 	
-	@Column(name = "Adresse")
-	private String Adresse;
+  @ManyToOne
+  @JoinColumn(name = "idcommande")
+  private Commande Commande;
+  
+  @OneToMany(mappedBy = "livraison")
+  private List<Facture>factures;
 	
-	@ManyToOne
-	@JoinColumn(name = "idproduits")
-	private Produits produits;
-
+	
+	
 }

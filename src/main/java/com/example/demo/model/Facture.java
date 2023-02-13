@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,28 +20,27 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Fournisseur")
+@Table(name = "Facture")
 
-public class Fournisseur {
+public class Facture {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name = "nom")
-	private String nom;
+	@Column(name = "NumFacture")
+	private String NumFacture;
 	
-	@Column(name = "Email")
-	private String Email;
+	@Column(name = "DateFacture")
+	private Date DateFacture;
 	
-	@Column(name = "Telephone")
-	private String Telephone;
-	
-	@Column(name = "Adresse")
-	private String Adresse;
+	@Column(name = "PrixTotal")
+	private BigDecimal PrixTotal;
 	
 	@ManyToOne
-	@JoinColumn(name = "idproduits")
-	private Produits produits;
-
+	@JoinColumn(name = "idlivraison")
+	private Livraison livraison;
+	
+	
+	
 }
