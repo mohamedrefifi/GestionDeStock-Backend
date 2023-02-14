@@ -13,13 +13,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
+
 @NoArgsConstructor
 @Table(name = "Produits")
 
@@ -59,10 +63,12 @@ public class Produits {
 	@OneToMany(mappedBy = "produits")
 	private List<MvtStock>mvtStocks;
 	
+
 	@OneToMany(mappedBy = "produits")
 	private List<Fournisseur>fournisseurs;
 	
 	@ManyToOne 
 	@JoinColumn(name = "idcategory")
+	@JsonIgnore
 	private Category Category;
 }

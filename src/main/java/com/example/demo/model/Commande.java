@@ -13,14 +13,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Table(name = "Commande")
 
 public class Commande {
@@ -43,6 +47,7 @@ public class Commande {
 	
 	@ManyToOne
 	@JoinColumn(name =  "idProduit")
+	@JsonIgnore
 	private Produits produits;
 	
 	@OneToMany(mappedBy = "Commande")

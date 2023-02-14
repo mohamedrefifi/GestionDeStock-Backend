@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +13,16 @@ import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 @Data
 @Entity
 @AllArgsConstructor
+
 @NoArgsConstructor
 @Table(name = "MvtStock")
 public class MvtStock {
@@ -38,6 +42,7 @@ public class MvtStock {
 	
 	@ManyToOne
 	@JoinColumn(name = "idproduits")
+	@JsonIgnore
 	private Produits produits;
 	
 

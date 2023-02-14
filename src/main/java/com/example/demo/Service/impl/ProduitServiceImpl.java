@@ -54,6 +54,15 @@ return ;
 }
 produitsRepository.deleteById(id);
 	}
+	@Override
+	public List<Produits> findproduitbyidcategory(Integer id) {
+		if(id==null)
+		{
+			return null;
+		}
+		return produitsRepository.findproduitbyidcategory(id).stream()
+				.collect(Collectors.toList());
+	}
 
 }
 

@@ -9,14 +9,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+
 @Table(name = "Fournisseur")
 
 public class Fournisseur {
@@ -37,8 +41,10 @@ public class Fournisseur {
 	@Column(name = "Adresse")
 	private String Adresse;
 	
+
 	@ManyToOne
 	@JoinColumn(name = "idproduits")
+	@JsonIgnore
 	private Produits produits;
 
 }
