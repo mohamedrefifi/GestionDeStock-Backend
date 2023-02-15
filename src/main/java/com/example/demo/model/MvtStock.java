@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -37,12 +38,13 @@ public class MvtStock {
 	@Column(name = "Quantite")
 	private Float Quantite;
 	
+	@NotEmpty
 	@Column(name = "TypeMvt")
 	private String TypeMvt;
 	
 	@ManyToOne
 	@JoinColumn(name = "idproduits")
-	@JsonIgnore
+
 	private Produits produits;
 	
 

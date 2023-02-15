@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,14 +34,18 @@ public class Produits {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty
 	@Column(name = "nom")
 	private String nom;
 	
+	@NotEmpty
 	@Column(name = "designiation")
 	private String designiation;
 	
+	@NotEmpty
 	@Column(name = "CodeArticle")
 	private String CodeArticle;
+	
 	
 	@Column(name = "Quantite")
 	private Float Quantite;
@@ -59,6 +64,10 @@ public class Produits {
 	
 	@OneToMany(mappedBy = "produits")
 	 private List<Commande>commandes;
+	
+	@OneToMany(mappedBy = "produits")
+	 private List<Facture>factures;
+	
 	
 	@OneToMany(mappedBy = "produits")
 	private List<MvtStock>mvtStocks;

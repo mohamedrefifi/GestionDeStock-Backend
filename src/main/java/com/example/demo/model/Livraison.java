@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,11 +34,13 @@ public class Livraison {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+    @NotEmpty
 	@Column(name = "NumBonLivraion")
 	private String NumBonLivraion;
 	
+    
 	@Column(name = "DateLivraison")
-	private String DateLivraison;
+	private Date DateLivraison;
 	
 	@Column(name = "Quantite")
 	private Float Quantite;

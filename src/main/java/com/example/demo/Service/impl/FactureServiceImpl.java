@@ -1,4 +1,5 @@
 package com.example.demo.Service.impl;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,6 +53,10 @@ if(id==null)
 return ;	
 }
 factureRepository.deleteById(id);
+	}
+	@Override
+	public BigDecimal chiffreaffaire() {
+	return factureRepository.chiffreaffaire();
 	}
 
 }

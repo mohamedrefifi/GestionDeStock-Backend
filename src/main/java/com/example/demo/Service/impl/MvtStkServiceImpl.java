@@ -19,14 +19,7 @@ public class MvtStkServiceImpl implements MvtStkService {
 	{
 		this.mvtStockRepository=mvtStockRepository;
 	}
-	@Override
-	public MvtStock save(MvtStock mvtStock) {
-	if(mvtStock==null)
-	{
-		return null;
-	}
-	return mvtStockRepository.save(mvtStock);
-	}
+	
 
 	@Override
 	public Optional<MvtStock> FindById(Integer id) {
@@ -54,8 +47,34 @@ return ;
 }
 mvtStockRepository.deleteById(id);
 	}
+	@Override
+	public Float StockReelProduit(Integer id) {
+		if(id==null)
+		{
+			return null;
+		}
+		return mvtStockRepository.StockReelProduit(id);
+	}
+	@Override
+	public MvtStock mouvementDeStock(MvtStock mvtStock) {
+		if(mvtStock==null)
+		{
+			return null;
+		}
+		 if  (mvtStock.getTypeMvt().toString().contentEquals("entree"))
+		{
+			return mvtStockRepository.save(mvtStock);
+			
+		}
+		 else 
+		 {
+			 mvtStock.setQuantite(mvtStock.getQuantite()* -1);
+			return mvtStockRepository.save(mvtStock);
+		 }
+		 
+			
 
-}
+	}}
 
 
 

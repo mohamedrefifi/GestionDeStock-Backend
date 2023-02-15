@@ -3,6 +3,8 @@ package com.example.demo.controller.api;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +16,7 @@ import com.example.demo.model.Category;
 public interface CategoryApi {
 
 	@PostMapping(value = "/stk/category/save")
-    Category save(@RequestBody Category category);
+    Category save(@RequestBody @Valid Category category);
 	
 	@GetMapping(value = "/stk/category/find/{id}")
 	Optional<Category> FindById (@PathVariable("id") Integer id);

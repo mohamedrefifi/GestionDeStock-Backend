@@ -6,10 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
@@ -26,18 +26,23 @@ import lombok.NoArgsConstructor;
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer id;
 		
+		@NotEmpty
 		@Column(name = "nom")
 		private String nom;
 		
+		@Email
 		@Column(name = "Email")
 		private String Email;
 		
+		@NotEmpty
 		@Column(name = "Telephone")
 		private String Telephone;
 		
+		@NotEmpty
 		@Column(name = "MotDePasse")
 		private String MotDePasse;
 		
+		@NotEmpty
 		@Column(name = "Adresse")
 		private String Adresse;
 		

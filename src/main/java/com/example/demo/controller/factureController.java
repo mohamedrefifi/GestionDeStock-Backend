@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,10 @@ public class factureController implements FactureApi {
     	 return;
      }
      factureService.Delete(id);
+	}
+	@Override
+	public BigDecimal chiffreaffaire() {
+		return factureService.chiffreaffaire();
 	}
 
 	

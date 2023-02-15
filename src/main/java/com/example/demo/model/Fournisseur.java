@@ -8,7 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -29,9 +30,11 @@ public class Fournisseur {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty
 	@Column(name = "nom")
 	private String nom;
 	
+	@Email
 	@Column(name = "Email")
 	private String Email;
 	

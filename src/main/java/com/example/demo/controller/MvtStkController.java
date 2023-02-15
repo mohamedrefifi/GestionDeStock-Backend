@@ -21,12 +21,12 @@ public class MvtStkController implements MvtStkApi {
 	}
 
 	@Override
-	public MvtStock save(MvtStock mvtStock) {
+	public MvtStock mouvementDeStock(MvtStock mvtStock) {
 		if(mvtStock==null)
 		{
 		return null;
 	}
-		return mvtStkService.save(mvtStock);
+		return mvtStkService.mouvementDeStock(mvtStock);
 	}
 
 	@Override
@@ -50,6 +50,16 @@ public class MvtStkController implements MvtStkApi {
 			return;
 		}
 		mvtStkService.Delete(id);
+	}
+
+	@Override
+	public Float StockReelProduit(Integer id) {
+    if(id==null)
+   {
+	return null;
+   }
+    return
+    mvtStkService.StockReelProduit(id);
 	}
 
 }

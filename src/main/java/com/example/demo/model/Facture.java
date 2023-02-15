@@ -46,6 +46,11 @@ public class Facture {
 	@JsonIgnore
 	private Livraison livraison;
 	
+	@ManyToOne
+	@JoinColumn(name =  "idProduit")
+	@JsonIgnore
+	private Produits produits;
+	
 	
 	
 }

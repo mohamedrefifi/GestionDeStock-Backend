@@ -3,6 +3,8 @@ package com.example.demo.controller.api;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +18,7 @@ import com.example.demo.model.Commande;
 public interface CommandeApi {
 
 	@PostMapping(value = "/stk/commande/save")
-    Commande save(@RequestBody Commande commande);
+    Commande save(@RequestBody @Valid Commande commande);
 	
 	@GetMapping(value = "/stk/commande/find/{id}")
 	Optional<Commande> FindById (@PathVariable("id") Integer id);

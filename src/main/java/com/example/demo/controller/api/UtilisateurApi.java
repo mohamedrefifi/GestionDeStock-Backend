@@ -3,6 +3,8 @@ package com.example.demo.controller.api;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +17,7 @@ import com.example.demo.model.Utilisateur;
 
 public interface UtilisateurApi {
 	@PostMapping(value = "/stk/utilisateur/save")
-    Utilisateur save(@RequestBody Utilisateur utilisateur);
+    Utilisateur save(@RequestBody @Valid Utilisateur utilisateur);
 	
 	@GetMapping(value = "/stk/utilisateur/find/{id}")
 	Optional<Utilisateur> FindById (@PathVariable("id") Integer id);
